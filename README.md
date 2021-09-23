@@ -108,7 +108,7 @@ AppNest项目中，App和Web之间通过App壳在启动阶段注入的`JSBridge`
 
    AppNest项目中，App和Web之间通过App壳在启动阶段注入的JSBridge对象进行数据交换。开发者需要在页面中按约定的配置请求App。若需要接收回调数据，还需要在页面注册事件监听。
 
-   开发者可以通过JSBridge的`mpaasPostNotification`函数调用，该函数包含三个参数，分别是`name`（行为）、`data`（配置参数）、`announce`（随机数）.
+   开发者可以通过JSBridge的`mpaasPostNotification`函数调用，该函数包含三个参数，分别是`name`（行为）、`data`（配置参数）、`announce`（随机数）。
    ```javascript
    this.mpaasPostNotification(
         'choseImg',

@@ -136,8 +136,8 @@ hybrid.events && hybrid.events.length && hybrid.events.forEach(e => {
     if (e.restrict && !data.announce) {
       return;
     }
-    if ((!e.restrict || data.announce == hybrid.announce) && hybrid.hasOwnProperty(callback) && typeof hybrid[callback] == "function") {
-      hybrid[callback](data);
+    if ((!e.restrict || data.announce == hybrid.announce) && window.hasOwnProperty(callback) && typeof window[callback] == "function") {
+      window[callback](data);
     }
   }, false);
 });
@@ -181,7 +181,7 @@ export default {
     hybrid.events && hybrid.events.length && hybrid.events.forEach(e => {
       let {callback: f} = e;
       if (_.hasOwnProperty(f) && _[f] && typeof _[f] == 'function') {
-        hybrid[f] = _[f];
+        window[f] = _[f];
       }
     })
 
