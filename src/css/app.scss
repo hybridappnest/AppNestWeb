@@ -1,0 +1,18 @@
+// app global css in SCSS form
+.nest-href {
+  text-decoration: none;
+  transition: .36s linear;
+}
+
+.nest-href:hover {
+  color: #2b3040 !important;
+  transition: .36s linear;
+}
+
+.nest-box-shadow {
+  box-shadow: 0 2px 10px rgba(125, 126, 128, 0.16);
+}
+
+.nest-box-shadow-up {
+  box-shadow: 0 -2px 10px rgba(125, 126, 128, 0.16);
+}
