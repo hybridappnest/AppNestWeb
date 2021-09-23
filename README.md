@@ -148,6 +148,27 @@ AppNest项目中，App和Web之间通过App壳在启动阶段注入的`JSBridge`
    ```
    如此就完成了一个简单的交互接口。目前支持的API接口有`choseFile`（选择文件）、`choseImg`（选择或拍摄照片、视频）、`upload`（上传文件）、`socialLogin`（社会化登录）、`scan`（扫描二维码）等，未来还会进一步扩充。
 
+4. 标题栏
+
+   我们可以通过`document.title = '首页'`的方式指定页面标题，设置App的页面标题需要经过JSBridge的处理接口。
+   ```javascript
+   if(this.isApp){
+      this.mpaasSetTitle(document.title);
+   }
+   ```
+   如果需要在标题栏右侧增加自定义的图标或文字按钮，可以参考JSBridge中的`mpaasSetRightMenu`、`mpaasSetRightMenuWithIcon`方法。用户在点击标题栏右侧的按钮时，App会主动回调`optionMenu`事件，开发者只需要在页面`hybrid`对象的`events`数组中注册`optionMenu`事件即可自动订阅、监听。
+   ```javascript
+   const hybrid = {
+      announce: null,
+      events: [
+         apis.optionMenu
+      ]
+   };
+   ```
+
+## 模板
+在`src/template`目录下提供了一个模板文件，模板中包含了常规的页面构建规则和事件绑定、监听流程。开发者可以直接基于该模板开发。
+
 ## 易用性
 
 ### Vuex
