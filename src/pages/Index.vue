@@ -5,7 +5,9 @@
     </q-inner-loading>
 
     <template v-show="!loading">
-
+      <div class="fullscreen flex flex-center">
+        {{ scan_result || '请点击右上角的图标启动扫码' }}
+      </div>
     </template>
   </q-page>
 </template>
@@ -41,7 +43,9 @@ export default {
   data() {
     return {
       loading: false,
-      payload: null
+      payload: null,
+
+      scan_result: null
     }
   },
   computed: {
@@ -55,10 +59,14 @@ export default {
       "updateProperty"
     ]),
     optionMenu(data) {
-      this.mpaasPostNotification(apis.scan.action, {})
+      if (this.isApp) {
+        hybrid.announce = Math.floor(Math.random() * 1000000);
+        this.mpaasPostNotification(apis.scan.action, {}, hybrid.announce);
+      }
     },
     scanCallback(data) {
-      console.log(data);
+      console.log('扫码返回 ', data);
+      this.scan_result = data && data.data;
     }
   },
   created() {

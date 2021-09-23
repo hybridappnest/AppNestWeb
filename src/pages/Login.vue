@@ -73,7 +73,7 @@
           </div>
 
           <q-btn size="md" class="full-width q-mt-xl no-border-radius" color="primary" text-color="white"
-                 label="登录"></q-btn>
+                 label="登录" @click="login"></q-btn>
 
           <div class="row no-wrap items-start q-mt-md">
             <q-checkbox size="xs" v-model="policyAccepted" color="positive"
@@ -157,6 +157,12 @@ export default {
         //   data
         // });
       }
+    },
+    login(){
+      this.$utils.getUserInfo();
+      this.$router.replace({
+        path: '/'
+      })
     }
   },
   created() {

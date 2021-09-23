@@ -161,8 +161,10 @@ export default {
       "updateProperty"
     ]),
     optionMenu(data) {
-      console.log("点击扫描按钮", data);
-      this.mpaasPostNotification(apis.scan.action, {})
+      if (this.isApp) {
+        hybrid.announce = Math.floor(Math.random() * 1000000);
+        this.mpaasPostNotification(apis.scan.action, {}, hybrid.announce);
+      }
     },
     scanCallback(data) {
       console.log("扫描完成", data);
