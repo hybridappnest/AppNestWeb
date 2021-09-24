@@ -227,5 +227,10 @@ router.beforeEach((to, from, next) => {
 ```
 **注意，vue-router只在浏览器环境下生效。** 在App环境下，页面跳转时会被添加token字段，页面在初始化时（`created()`方法）会自动根据token拉取用户信息。
 
+## 加入讨论群
+| 微信                 | QQ                                |
+|-----------------------|:----------------------------------|
+| ![微信](./src/assets/Wechat.png) | ![QQ](./src/assets/QQ.png) |
+
 ## LICENSE
 Apache License Version 2.0
