@@ -5,7 +5,7 @@
     </q-inner-loading>
 
     <template v-show="!loading">
-      <div class="fullscreen flex flex-center">
+      <div class="flex flex-center" :style="{height: ($q.screen.height - 50) + 'px'}">
         {{ scan_result || '请点击右上角的图标启动扫码' }}
       </div>
     </template>

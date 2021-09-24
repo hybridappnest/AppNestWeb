@@ -52,7 +52,7 @@ hybrid.events && hybrid.events.length && hybrid.events.forEach(e => {
 });
 
 export default {
-  name: "StandalonePage",
+  name: "Template",
   data() {
     return {
       loading: false,
